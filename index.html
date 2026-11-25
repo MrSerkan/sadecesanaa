@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0207">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Senin İçin">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Sadece senin için açan bir çiçek.">
+  <title>Sadece Senin İçin ❤️</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-scene="intro">
+
+  <!-- Ambient cinematic lighting -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__base"></div>
+    <div class="ambient__glow ambient__glow--low"></div>
+    <div class="ambient__glow ambient__glow--high"></div>
+    <div class="ambient__bloom"></div>
+    <div class="ambient__reveal"></div>
+  </div>
+
+  <canvas id="bg" class="layer" aria-hidden="true"></canvas>
+  <canvas id="scene" class="layer" aria-hidden="true"></canvas>
+
+  <!-- Press-and-hold progress ring (positioned around the rose by script.js) -->
+  <svg id="ring" class="ring" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f7d2c4"/>
+        <stop offset="0.5" stop-color="#e0a38f"/>
+        <stop offset="1" stop-color="#d77a90"/>
+      </linearGradient>
+    </defs>
+    <circle class="ring__track" cx="50" cy="50" r="47"/>
+    <circle class="ring__breath" cx="50" cy="50" r="47"/>
+    <circle id="ringProgress" class="ring__progress" cx="50" cy="50" r="47" pathLength="1"/>
+  </svg>
+
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="experience">
+    <h1 class="sr-only">Sadece Senin İçin</h1>
+
+    <!-- The whole screen is the touch surface -->
+    <div id="stage" class="stage" role="button" tabindex="0" aria-label="Tohuma dokun"></div>
+
+    <div class="story" aria-hidden="true">
+      <p id="message" class="message txt" lang="tr"></p>
+      <p id="hint" class="hint txt" lang="tr"></p>
+    </div>
+
+    <section id="finale" class="finale" aria-hidden="true">
+      <p id="letter" class="letter" aria-hidden="true"></p>
+      <p id="letterSr" class="sr-only"></p>
+      <div class="finale__heart" aria-hidden="true">
+        <svg viewBox="0 0 100 100" focusable="false">
+          <defs>
+            <linearGradient id="heartGrad" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0" stop-color="#f4a9b8"/>
+              <stop offset="0.55" stop-color="#c0304f"/>
+              <stop offset="1" stop-color="#6d0b24"/>
+            </linearGradient>
+            <linearGradient id="heartLine" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f8dccf"/>
+              <stop offset="1" stop-color="#d9998a"/>
+            </linearGradient>
+          </defs>
+          <path class="heart__fill" d="M50 86 C 20 66, 6 47, 12 29 C 17 13, 38 9, 50 25 C 62 9, 83 13, 88 29 C 94 47, 80 66, 50 86 Z"/>
+          <path class="heart__line" pathLength="1" d="M50 86 C 20 66, 6 47, 12 29 C 17 13, 38 9, 50 25 C 62 9, 83 13, 88 29 C 94 47, 80 66, 50 86 Z"/>
+          <path class="heart__shine" d="M24 30 C 26 22, 33 19, 39 22"/>
+        </svg>
+      </div>
+      <button id="replay" class="replay" type="button" tabindex="-1">Bir daha yaşayalım</button>
+    </section>
+
+    <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  </main>
+
+  <button id="music" class="music" type="button" aria-pressed="false" aria-label="Müziği aç" title="Müzik">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path class="music__note" d="M9 18.2a2.6 2.6 0 1 1-1.2-2.2V5.6l10-2v11.6a2.6 2.6 0 1 1-1.2-2.2V7.1l-7.6 1.5z"/>
+      <path class="music__slash" d="M4 4 L20 20"/>
+    </svg>
+    <span class="music__waves" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+
+  <div id="measure" class="letter letter--measure" aria-hidden="true"></div>
+  <div id="safe" class="safe-probe" aria-hidden="true"></div>
+  <div id="curtain" class="curtain" aria-hidden="true"></div>
+
+  <noscript>
+    <p class="noscript">Bu sihirli çiçeği büyütmek için lütfen JavaScript'i etkinleştir.</p>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0" stop-color="#4d0d25"/>
+      <stop offset="0.65" stop-color="#1c040d"/>
+      <stop offset="1" stop-color="#0a0207"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="45%">
+      <stop offset="0" stop-color="#f08ca5" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f08ca5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="outer" x1="0.2" y1="1" x2="0.6" y2="0">
+      <stop offset="0" stop-color="#4a0718"/>
+      <stop offset="0.5" stop-color="#a11f42"/>
+      <stop offset="1" stop-color="#e88ea2"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0.3" y1="1" x2="0.5" y2="0">
+      <stop offset="0" stop-color="#5e0b22"/>
+      <stop offset="0.6" stop-color="#c0365a"/>
+      <stop offset="1" stop-color="#f3b3bf"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b8a4e"/>
+      <stop offset="1" stop-color="#1d3520"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8d7c8"/>
+      <stop offset="1" stop-color="#c98a76"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <circle cx="32" cy="27" r="22" fill="url(#glow)"/>
+  <!-- stem & leaf -->
+  <path d="M32 40 C 31 47, 33 53, 31.5 60" stroke="#2f5230" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M32 50 C 38 45, 45 46, 48 49 C 43 53, 37 53, 32 50 Z" fill="url(#leaf)"/>
+  <!-- outer petals -->
+  <path d="M15 24 C 13 34, 21 43, 32 43 C 43 43, 51 34, 49 24 C 45 30, 39 33, 32 33 C 25 33, 19 30, 15 24 Z" fill="url(#outer)"/>
+  <path d="M18 20 C 17 13, 25 8, 32 11 C 39 8, 47 13, 46 20 C 46 29, 39 35, 32 35 C 25 35, 18 29, 18 20 Z" fill="url(#mid)"/>
+  <!-- spiral heart of the rose -->
+  <path d="M32 15 C 39 15, 41 22, 37 26 C 33.5 29.5, 27 27.5, 27.5 23 C 28 19.5, 32.5 19, 33.5 21.5 C 34.3 23.5, 32.5 24.5, 31.5 23.8" fill="none" stroke="#4a0718" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M22 22 C 22 29, 27 32.5, 32 32.5" fill="none" stroke="#5a0b1f" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  <path d="M42 22 C 42 29, 37 32.5, 32 32.5" fill="none" stroke="#5a0b1f" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  <path d="M19 19 C 21 13, 27 10.5, 31 12" fill="none" stroke="url(#gold)" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
+</svg>
